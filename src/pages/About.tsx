@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { whyChooseUs } from "@/lib/data";
+import { destinationImages } from "@/lib/images";
 
 const stats = [
   { icon: Users, value: "10,000+", label: "Happy Travellers" },
@@ -17,6 +18,13 @@ const fadeUp = {
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
 };
+
+const aboutGallery = [
+  { key: "kashmir", label: "Himalayan Escapes" },
+  { key: "bali", label: "Island Getaways" },
+  { key: "dubai", label: "City Breaks" },
+  { key: "switzerland", label: "Alpine Adventures" },
+];
 
 const About = () => (
   <Layout>
@@ -72,6 +80,22 @@ const About = () => (
           </motion.div>
 
           <motion.div {...fadeUp} transition={{ delay: 0.2 }}>
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              {aboutGallery.map((item) => (
+                <div key={item.key} className="relative h-36 rounded-xl overflow-hidden group">
+                  <img
+                    src={destinationImages[item.key]}
+                    alt={item.label}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                    width={768}
+                    height={512}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
+                  <span className="absolute bottom-2 left-2 text-xs font-semibold text-primary-foreground">{item.label}</span>
+                </div>
+              ))}
+            </div>
             <div className="grid grid-cols-2 gap-4">
               {whyChooseUs.map((item, i) => (
                 <div key={i} className="bg-card p-5 rounded-xl border border-border shadow-card">

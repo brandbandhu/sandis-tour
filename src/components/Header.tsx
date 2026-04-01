@@ -14,7 +14,6 @@ const navLinks = [
       { label: "International Packages", path: "/packages?type=international" },
     ],
   },
-  { label: "Experiences", path: "/services" },
   { label: "Travel Services", path: "/services" },
   { label: "About Us", path: "/about" },
   { label: "Contact Us", path: "/contact" },

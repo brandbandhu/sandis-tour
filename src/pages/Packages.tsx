@@ -1,14 +1,12 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
-import SectionHeading from "@/components/SectionHeading";
 import EnquiryForm from "@/components/EnquiryForm";
-import { domesticPackages, internationalPackages } from "@/lib/data";
+import { allPackages } from "@/lib/data";
 import { getWhatsAppServiceUrl } from "@/lib/whatsapp";
 import { destinationImages } from "@/lib/images";
 
-const allPackages = [...domesticPackages.map(p => ({ ...p, type: "domestic" })), ...internationalPackages.map(p => ({ ...p, type: "international" }))];
 const filters = ["all", "domestic", "international"] as const;
 
 const Packages = () => {
@@ -77,14 +75,22 @@ const Packages = () => {
                       <span key={h} className="text-[10px] bg-teal-light text-primary px-2 py-0.5 rounded-full">{h}</span>
                     ))}
                   </div>
-                  <a
-                    href={getWhatsAppServiceUrl(pkg.title)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-center bg-primary text-primary-foreground py-2 rounded-md text-sm font-semibold hover:opacity-90 transition-opacity"
-                  >
-                    Enquire Now
-                  </a>
+                  <div className="grid grid-cols-2 gap-2">
+                    <Link
+                      to={`/packages/${pkg.slug}`}
+                      className="block text-center border border-border py-2 rounded-md text-sm font-semibold text-foreground hover:bg-secondary transition-colors"
+                    >
+                      View Details
+                    </Link>
+                    <a
+                      href={getWhatsAppServiceUrl(pkg.title)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-center bg-primary text-primary-foreground py-2 rounded-md text-sm font-semibold hover:opacity-90 transition-opacity"
+                    >
+                      Enquire Now
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             ))}

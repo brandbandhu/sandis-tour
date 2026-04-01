@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import { ArrowRight, Star, ChevronLeft, ChevronRight, Award, Clock, Shield, Heart, Sparkles, Users } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -166,14 +166,22 @@ const Index = () => {
                       <span key={h} className="text-[10px] bg-teal-light text-primary px-2 py-0.5 rounded-full">{h}</span>
                     ))}
                   </div>
-                  <a
-                    href={getWhatsAppServiceUrl(pkg.title)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-center bg-primary text-primary-foreground py-2 rounded-md text-sm font-semibold hover:opacity-90 transition-opacity"
-                  >
-                    Enquire Now
-                  </a>
+                  <div className="grid grid-cols-2 gap-2">
+                    <Link
+                      to={`/packages/${pkg.slug}`}
+                      className="block text-center border border-border py-2 rounded-md text-sm font-semibold text-foreground hover:bg-secondary transition-colors"
+                    >
+                      View Details
+                    </Link>
+                    <a
+                      href={getWhatsAppServiceUrl(pkg.title)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-center bg-primary text-primary-foreground py-2 rounded-md text-sm font-semibold hover:opacity-90 transition-opacity"
+                    >
+                      Enquire Now
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -208,14 +216,22 @@ const Index = () => {
                       <span key={h} className="text-[10px] bg-teal-light text-primary px-2 py-0.5 rounded-full">{h}</span>
                     ))}
                   </div>
-                  <a
-                    href={getWhatsAppServiceUrl(pkg.title)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-center bg-primary text-primary-foreground py-2 rounded-md text-sm font-semibold hover:opacity-90 transition-opacity"
-                  >
-                    Enquire Now
-                  </a>
+                  <div className="grid grid-cols-2 gap-2">
+                    <Link
+                      to={`/packages/${pkg.slug}`}
+                      className="block text-center border border-border py-2 rounded-md text-sm font-semibold text-foreground hover:bg-secondary transition-colors"
+                    >
+                      View Details
+                    </Link>
+                    <a
+                      href={getWhatsAppServiceUrl(pkg.title)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-center bg-primary text-primary-foreground py-2 rounded-md text-sm font-semibold hover:opacity-90 transition-opacity"
+                    >
+                      Enquire Now
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             ))}
