@@ -57,27 +57,34 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-xl"
+            className="w-full grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center"
           >
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-4">
-              {heroSlides[heroIndex].title}
-            </h1>
-            <p className="text-primary-foreground/80 text-lg md:text-xl mb-8">
-              {heroSlides[heroIndex].subtitle}
-            </p>
-            <div className="flex gap-4">
-              <Link
-                to="/packages"
-                className="bg-accent text-accent-foreground px-7 py-3.5 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center gap-2"
-              >
-                {heroSlides[heroIndex].cta} <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                to="/contact"
-                className="bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/30 px-7 py-3.5 rounded-lg font-semibold backdrop-blur-sm hover:bg-primary-foreground/20 transition-colors"
-              >
-                Know More
-              </Link>
+            <div className="max-w-xl">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-4">
+                {heroSlides[heroIndex].title}
+              </h1>
+              <p className="text-primary-foreground/80 text-lg md:text-xl mb-8">
+                {heroSlides[heroIndex].subtitle}
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to="/packages"
+                  className="bg-accent text-accent-foreground px-7 py-3.5 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center gap-2"
+                >
+                  {heroSlides[heroIndex].cta} <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/contact"
+                  className="bg-primary-foreground/10 text-primary-foreground border border-primary-foreground/30 px-7 py-3.5 rounded-lg font-semibold backdrop-blur-sm hover:bg-primary-foreground/20 transition-colors"
+                >
+                  Know More
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-card/95 backdrop-blur-md rounded-2xl p-5 md:p-6 shadow-premium border border-border">
+              <h2 className="font-display text-xl font-bold text-foreground mb-4">Plan Your Holiday</h2>
+              <EnquiryForm compact />
             </div>
           </motion.div>
         </div>
@@ -91,16 +98,6 @@ const Index = () => {
               className={`w-3 h-3 rounded-full transition-all ${i === heroIndex ? "bg-accent w-8" : "bg-primary-foreground/50"}`}
             />
           ))}
-        </div>
-      </section>
-
-      {/* Plan Your Holiday - Search bar like Odyssey */}
-      <section className="relative -mt-16 z-10 pb-8">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="bg-card rounded-xl shadow-premium p-6 md:p-8">
-            <h2 className="font-display text-xl font-bold text-foreground mb-4">Plan Your Holiday</h2>
-            <EnquiryForm />
-          </div>
         </div>
       </section>
 
