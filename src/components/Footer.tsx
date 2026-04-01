@@ -16,7 +16,7 @@ const Footer = () => (
             Your complete travel partner. We make dream vacations a reality with personalized service and unbeatable value.
           </p>
           <div className="flex gap-3">
-            {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
+            {[Globe, Globe, Globe, Globe].map((Icon, i) => (
               <a key={i} href="#" className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors">
                 <Icon className="w-4 h-4" />
               </a>
